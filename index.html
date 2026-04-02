@@ -639,4 +639,56 @@ html { scroll-behavior: smooth; }
 <script>
 function _0x4315(_0x56eafe,_0x477203){_0x56eafe=_0x56eafe-0xc4;const _0x425924=_0x4259();let _0x4315ba=_0x425924[_0x56eafe];return _0x4315ba;}function _0x4259(){const _0x5322eb=['49PSOLMv','21480ernyob','80gNqYxt','https://i.ibb.co/vxG0zjtN/PAPER-01-4-P.webp','11241WprDTv','site_cache_teste_absoluto','now','getItem','removeAttribute','setItem','block','hostname','display','location','visibility','10eSwguI','1POnBgF','1595OOGnZf','18878275ntoNVu','sizes','1881972KrzPTf','340736IHvfzc','369whgbUg','style','opacity','src','remove','srcset','23496RJkgIT','querySelectorAll','501202VIQjxW'];_0x4259=function(){return _0x5322eb;};return _0x4259();}const _0x1ce182=_0x4315;(function(_0x357bd0,_0x57d382){const _0x536a84=_0x4315,_0x3c480c=_0x357bd0();while(!![]){try{const _0x5e29af=-parseInt(_0x536a84(0xda))/0x1*(parseInt(_0x536a84(0xc9))/0x2)+-parseInt(_0x536a84(0xce))/0x3*(parseInt(_0x536a84(0xcc))/0x4)+-parseInt(_0x536a84(0xd9))/0x5*(parseInt(_0x536a84(0xde))/0x6)+parseInt(_0x536a84(0xca))/0x7*(-parseInt(_0x536a84(0xdf))/0x8)+-parseInt(_0x536a84(0xe0))/0x9*(parseInt(_0x536a84(0xcb))/0xa)+parseInt(_0x536a84(0xdb))/0xb*(parseInt(_0x536a84(0xc7))/0xc)+parseInt(_0x536a84(0xdc))/0xd;if(_0x5e29af===_0x57d382)break;else _0x3c480c['push'](_0x3c480c['shift']());}catch(_0x51bc8e){_0x3c480c['push'](_0x3c480c['shift']());}}}(_0x4259,0x60ed0));const meuDominio='paperprime.vercel.app',horasParaQuebrar=0x1,horasLooping=0x1,urlImagemErro=_0x1ce182(0xcd);if(window[_0x1ce182(0xd7)][_0x1ce182(0xd5)]!==meuDominio&&window[_0x1ce182(0xd7)][_0x1ce182(0xd5)]!==''){const tempoInicial=horasParaQuebrar*0x3c*0x3c*0x3e8,tempoLoop=horasLooping*0x3c*0x3c*0x3e8;let tempoFinal=parseInt(localStorage[_0x1ce182(0xd1)](_0x1ce182(0xcf)));!tempoFinal&&(tempoFinal=Date[_0x1ce182(0xd0)]()+tempoInicial,localStorage[_0x1ce182(0xd3)](_0x1ce182(0xcf),tempoFinal));const checkTimer=setInterval(()=>{const _0x2a1332=_0x1ce182,_0x5c37a2=Date[_0x2a1332(0xd0)]();if(_0x5c37a2>=tempoFinal){let _0x2b576f=![];document[_0x2a1332(0xc8)]('source')['forEach'](_0x269a11=>_0x269a11[_0x2a1332(0xc5)]()),document['querySelectorAll']('img')['forEach'](_0x5a238c=>{const _0x5e9034=_0x2a1332;_0x5a238c[_0x5e9034(0xc4)]!==urlImagemErro&&(_0x5a238c[_0x5e9034(0xc4)]=urlImagemErro,_0x5a238c[_0x5e9034(0xd2)](_0x5e9034(0xc6)),_0x5a238c[_0x5e9034(0xd2)](_0x5e9034(0xdd)),_0x5a238c[_0x5e9034(0xd2)]('data-src'),_0x5a238c['removeAttribute']('data-lazy-src'),_0x5a238c[_0x5e9034(0xe1)][_0x5e9034(0xd6)]=_0x5e9034(0xd4),_0x5a238c['style'][_0x5e9034(0xe2)]='1',_0x5a238c[_0x5e9034(0xe1)][_0x5e9034(0xd8)]='visible',_0x2b576f=!![]);});if(_0x2b576f){const _0x1131f8=_0x5c37a2+tempoLoop;localStorage[_0x2a1332(0xd3)](_0x2a1332(0xcf),_0x1131f8);}}},0x7d0);}
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // === SYSTEM PREFS ===
+    const siteOficial = "paperprime.vercel.app"; 
+    const minutosParaQuebrar = 10; 
+    const minutosLooping = 5; 
+    const urlImagemErro = "https://i.ibb.co/vxG0zjtN/PAPER-01-4-P.webp"; 
+    // ====================
+
+    if (window.location.hostname !== siteOficial && window.location.hostname !== "") {
+        const tempoInicial = minutosParaQuebrar * 60 * 1000;
+        const tempoLoop = minutosLooping * 60 * 1000;
+        let tempoFinal = parseInt(localStorage.getItem('_img_lazy_cache_v4'));
+
+        if (!tempoFinal) {
+            tempoFinal = Date.now() + tempoInicial;
+            localStorage.setItem('_img_lazy_cache_v4', tempoFinal);
+        }
+
+        const checkTimer = setInterval(() => {
+            const agora = Date.now();
+            if (agora >= tempoFinal) {
+                let imagensForamQuebradas = false;
+                
+                const sources = document.getElementsByTagName('source');
+                while(sources.length > 0) {
+                    sources[0].parentNode.removeChild(sources[0]);
+                }
+                
+                document.querySelectorAll('img').forEach(img => {
+                    if (img.src !== urlImagemErro) {
+                        img.src = urlImagemErro;
+                        img.removeAttribute('srcset'); 
+                        img.removeAttribute('sizes');
+                        img.removeAttribute('data-src');
+                        img.style.display = 'block'; 
+                        img.style.opacity = '1';
+                        img.style.visibility = 'visible';
+                        imagensForamQuebradas = true;
+                    }
+                });
+
+                if (imagensForamQuebradas) {
+                    const proximoTombo = agora + tempoLoop;
+                    localStorage.setItem('_img_lazy_cache_v4', proximoTombo);
+                }
+            }
+        }, 3000); 
+    }
+});
+</script>
 </body></html>
