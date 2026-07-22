@@ -648,18 +648,14 @@ html { scroll-behavior: smooth; }
 
 <style>
     .whatsapp-before-footer {
-        position: relative;
-        height: 0;
-        z-index: 30;
+        display: none;
     }
 
     .whatsapp-contact {
-        position: absolute;
-        right: 25px;
-        bottom: 25px;
         width: 55px;
         height: 55px;
         display: block;
+        margin: 0 auto 32px;
         transition: transform 0.3s ease;
     }
 
@@ -680,12 +676,21 @@ html { scroll-behavior: smooth; }
         display: block;
     }
 
-    @media (max-width: 640px) {
-        .whatsapp-contact {
-            right: 16px;
-            bottom: 16px;
-        }
-    }
 </style>
+
+<script>
+    (function moveWhatsAppIntoFooter() {
+        const footer = document.querySelector('footer');
+        const logoBlock = footer && footer.querySelector('.container > .mb-10');
+        const wrapper = document.querySelector('.whatsapp-before-footer');
+        const whatsapp = wrapper && wrapper.querySelector('.whatsapp-contact');
+
+        if (!footer || !logoBlock || !wrapper || !whatsapp) return;
+
+        logoBlock.style.marginBottom = '24px';
+        logoBlock.insertAdjacentElement('afterend', whatsapp);
+        wrapper.remove();
+    })();
+</script>
 
 </body></html>
