@@ -1,0 +1,93 @@
+PAPERCRAFT PRIME - PASTA DE IMAGENS
+====================================
+
+Coloque os arquivos nesta pasta com EXATAMENTE os nomes abaixo (tudo
+minusculo, com hifen, extensao .webp). A pagina ja esta apontando para
+eles: assim que o arquivo existir, ele aparece sozinho no lugar certo.
+
+Enquanto o arquivo nao existe, aparece uma caixa tracejada com o nome
+esperado escrito dentro. Isso e so o marcador - some quando a imagem
+entra.
+
+Todas as imagens da pagina usam .webp. Se um dia voce precisar de .jpg
+ou .png em algum arquivo, e so avisar que eu troco no index.html.
+
+
+HERO (1 arquivo)  - JA ESTA NA PASTA
+------------------------------------
+hero.webp ......................... 1022 x 681 px  (3:2)
+   A arte principal da dobra. Se trocar, mantenha a proporcao 3:2
+   (ex.: 1500 x 1000) para nada ser cortado.
+
+
+METODO JAPONES - 3 PASSOS  - JA ESTAO NA PASTA
+----------------------------------------------
+met-01.webp ........................ 960 x 961 px  (quadrada)
+   Passo 1 - Numeracao Logica: o molde com as pecas numeradas.
+met-02.webp ........................ 961 x 961 px
+   Passo 2 - Encaixe Preditivo: as abas se encaixando.
+met-03.webp ........................ 962 x 962 px
+   Passo 3 - Molde Finalizado: a peca pronta, como decoracao.
+
+
+GALERIA DE MODELOS (8 arquivos)  - JA ESTAO NA PASTA
+----------------------------------------------------
+galeria-01.webp .................... 557 x 557 px  (quadrada, 1:1)
+galeria-02.webp .................... 557 x 557 px
+galeria-03.webp .................... 557 x 557 px
+galeria-04.webp .................... 557 x 557 px
+galeria-05.webp .................... 557 x 557 px
+galeria-06.webp .................... 557 x 557 px
+galeria-07.webp .................... 557 x 557 px
+galeria-08.webp .................... 557 x 557 px
+   Ordem na pagina: 01 02 03 04 na primeira linha, 05 06 07 08 na
+   segunda. Se trocar alguma, mantenha QUADRADA para nao cortar.
+
+
+DEPOIMENTOS (3 fotos + 3 avatares)  - FOTOS JA ESTAO NA PASTA
+-------------------------------------------------------------
+dep-01.webp ........................ 558 x 558 px  (quadrada)  - Ana Paula
+dep-02.webp ........................ 557 x 557 px              - Carlos M.
+dep-03.webp ........................ 557 x 557 px              - Juliana T.
+   ATENCAO: a dep-02 tem tarjas pretas nas laterais dentro do
+   proprio arquivo. Vale reexportar cortada, so com a foto.
+
+prova-01.webp ...................... 64 x 80 px    - Ana Paula
+prova-02.webp ...................... 597 x 526 px  - Carlos M.
+prova-03.webp ...................... 828 x 1095 px - Juliana T.
+   Sao os rostinhos ao lado do nome. Viram circulo de 34 px, com o
+   corte puxado um pouco para cima para pegar o rosto.
+   A prova-01 tem so 64 px de largura - em tela retina ela pode
+   aparecer levemente borrada. Se tiver o original maior, troque.
+
+
+OFERTA (1 arquivo)  - JA ESTA NA PASTA
+--------------------------------------
+oferta-completo.webp ............... 933 x 700 px  (4:3)
+   O mockup dentro do card ACESSO COMPLETO. Se trocar, mantenha
+   a proporcao 4:3 para nao cortar as bordas do combo.
+
+
+BONUS (4 arquivos)  - JA ESTAO NA PASTA
+b-01.webp .......................... 962 x 962 px  (quadrada, 1:1)
+   Garagem Supercars 3D - carros esportivos montados.
+b-02.webp .......................... 962 x 962 px
+   Pack Herois - busto na parede ou estante.
+b-03.webp .......................... 962 x 962 px
+   Santuario Animes & Mangas - personagem lowpoly.
+b-04.webp .......................... 962 x 962 px
+   Zoologico Geometrico - leao, cervo ou lobo angular.
+
+
+TOTAL: 22 arquivos
+
+
+OBSERVACOES
+-----------
+- Todas as imagens sao cortadas para preencher a caixa (object-fit:
+  cover). O centro da imagem e o que sempre aparece, entao deixe o
+  assunto principal no meio.
+- Peso: tente manter cada arquivo abaixo de 300 KB para a pagina abrir
+  rapido no celular. O hero pode ir ate 500 KB.
+- Nomes com acento, espaco ou letra maiuscula NAO funcionam. Use
+  exatamente os nomes desta lista.
