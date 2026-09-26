@@ -72,7 +72,7 @@
     background:repeating-linear-gradient(45deg,#F7F9FC 0 10px,#F1F5FB 10px 20px);
   }
   .ph::after{
-    content:attr(data-img);
+    content:none;
     position:absolute;
     inset:0;
     display:grid;
@@ -92,6 +92,8 @@
     height:100%;
     object-fit:cover;
   }
+  /* o nome do arquivo so aparece quando a imagem nao existe (nao durante o carregamento lazy) */
+  .ph.is-missing::after{content:attr(data-img);}
   .ph--hero{aspect-ratio:3/2;border-radius:16px;}
   .ph.is-loaded{border-color:transparent;background:none;}
   .ph--sq{aspect-ratio:1/1;}
@@ -825,7 +827,7 @@
 
     <div class="hero-img">
       <span class="ph ph--hero" data-img="imagens/hero.webp">
-        <img src="imagens/hero.webp" alt="Modelos de papercraft montados sobre a mesa">
+        <img src="imagens/hero.webp" fetchpriority="high" alt="Modelos de papercraft montados sobre a mesa">
       </span>
     </div>
 
@@ -880,17 +882,17 @@
 
     <div class="grid3">
       <article class="step">
-        <span class="ph ph--sq" data-img="imagens/met-01.webp"><img src="imagens/met-01.webp" alt="Molde com peças numeradas"></span>
+        <span class="ph ph--sq" data-img="imagens/met-01.webp"><img src="imagens/met-01.webp" loading="lazy" decoding="async" alt="Molde com peças numeradas"></span>
         <h3>1. Numeração Lógica</h3>
         <p>Peças numeradas para você identificar cada parte sem confusão.</p>
       </article>
       <article class="step">
-        <span class="ph ph--sq" data-img="imagens/met-02.webp"><img src="imagens/met-02.webp" alt="Abas de papel se encaixando"></span>
+        <span class="ph ph--sq" data-img="imagens/met-02.webp"><img src="imagens/met-02.webp" loading="lazy" decoding="async" alt="Abas de papel se encaixando"></span>
         <h3>2. Encaixe Preditivo</h3>
         <p>Encaixes perfeitos que mostram exatamente onde colar.</p>
       </article>
       <article class="step">
-        <span class="ph ph--sq" data-img="imagens/met-03.webp"><img src="imagens/met-03.webp" alt="Molde de papercraft finalizado, pronto para decoração"></span>
+        <span class="ph ph--sq" data-img="imagens/met-03.webp"><img src="imagens/met-03.webp" loading="lazy" decoding="async" alt="Molde de papercraft finalizado, pronto para decoração"></span>
         <h3>3. Molde Finalizado</h3>
         <p>O resultado ganha forma diante dos seus olhos e se transforma em uma verdadeira peça de decoração.</p>
       </article>
@@ -905,14 +907,14 @@
     <p class="sub">Confira uma pequena demonstração de imagens reais dos moldes que você terá disponíveis na sua coleção</p>
 
     <div class="grid8">
-      <span class="ph ph--tile" data-img="imagens/galeria-01.webp"><img src="imagens/galeria-01.webp" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-02.webp"><img src="imagens/galeria-02.webp" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-03.webp"><img src="imagens/galeria-03.webp" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-04.webp"><img src="imagens/galeria-04.webp" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-05.webp"><img src="imagens/galeria-05.webp" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-06.webp"><img src="imagens/galeria-06.webp" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-07.webp"><img src="imagens/galeria-07.webp" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-08.webp"><img src="imagens/galeria-08.webp" alt="Modelo de papercraft"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-01.webp"><img src="imagens/galeria-01.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-02.webp"><img src="imagens/galeria-02.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-03.webp"><img src="imagens/galeria-03.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-04.webp"><img src="imagens/galeria-04.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-05.webp"><img src="imagens/galeria-05.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-06.webp"><img src="imagens/galeria-06.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-07.webp"><img src="imagens/galeria-07.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-08.webp"><img src="imagens/galeria-08.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
     </div>
 
     <div class="more">
@@ -932,7 +934,7 @@
 
     <div class="grid4">
       <article class="bonus">
-        <span class="ph ph--sq" data-img="imagens/b-01.webp"><img src="imagens/b-01.webp" alt="Carros esportivos de papel em escala"></span>
+        <span class="ph ph--sq" data-img="imagens/b-01.webp"><img src="imagens/b-01.webp" loading="lazy" decoding="async" alt="Carros esportivos de papel em escala"></span>
         <span class="tag">Bônus 1</span>
         <h3>Garagem Supercars 3D</h3>
         <p>Réplicas em escala de clássicos e esportivos. Monte sua própria coleção de estante sem gastar R$ 500 em miniaturas de metal.</p>
@@ -940,7 +942,7 @@
       </article>
 
       <article class="bonus">
-        <span class="ph ph--sq" data-img="imagens/b-02.webp"><img src="imagens/b-02.webp" alt="Busto de herói em papel montado na parede"></span>
+        <span class="ph ph--sq" data-img="imagens/b-02.webp"><img src="imagens/b-02.webp" loading="lazy" decoding="async" alt="Busto de herói em papel montado na parede"></span>
         <span class="tag">Bônus 2</span>
         <h3>Pack Heróis</h3>
         <p>Bustos em tamanho real para colocar na parede ou estante. A mesma estética de uma peça colecionável de R$ 800 de loja geek por menos de R$ 10 em folhas e cola.</p>
@@ -948,7 +950,7 @@
       </article>
 
       <article class="bonus">
-        <span class="ph ph--sq" data-img="imagens/b-03.webp"><img src="imagens/b-03.webp" alt="Personagem de anime em papel lowpoly"></span>
+        <span class="ph ph--sq" data-img="imagens/b-03.webp"><img src="imagens/b-03.webp" loading="lazy" decoding="async" alt="Personagem de anime em papel lowpoly"></span>
         <span class="tag">Bônus 3</span>
         <h3>Santuário Animes &amp; Mangás</h3>
         <p>Pare de queimar R$ 350 importando action figure de plástico que quebra na entrega. Monte seus próprios personagens favoritos em lowpoly com presença de peça de museu.</p>
@@ -956,7 +958,7 @@
       </article>
 
       <article class="bonus">
-        <span class="ph ph--sq" data-img="imagens/b-04.webp"><img src="imagens/b-04.webp" alt="Escultura geométrica de animal em papel"></span>
+        <span class="ph ph--sq" data-img="imagens/b-04.webp"><img src="imagens/b-04.webp" loading="lazy" decoding="async" alt="Escultura geométrica de animal em papel"></span>
         <span class="tag">Bônus 4</span>
         <h3>Zoológico Geométrico</h3>
         <p>Aquelas esculturas angulares de leões, cervos e lobos que você vê por R$ 250 em vitrine de shopping de luxo. Monte na mesa da sua sala gastando troco de pão.</p>
@@ -975,36 +977,36 @@
     <div class="tgrid">
         <article class="tcard">
           <div class="tc-head">
-            <span class="ph ph--av" data-img=""><img src="imagens/prova-01.webp" alt=""></span>
+            <span class="ph ph--av" data-img=""><img src="imagens/prova-01.webp" loading="lazy" decoding="async" alt=""></span>
             <div><div class="tc-name">Ana Paula</div><div class="tc-city">São Paulo &ndash; SP</div><svg class="tc-stars" width="60" height="10" viewBox="0 0 76 13" aria-label="5 estrelas"><use href="#i-stars" width="76" height="13"/></svg></div>
           </div>
           <p class="tc-quote">&ldquo;Gente, eu tô simplesmente apaixonada! Eu sou a pessoa mais desastrada do mundo pra artesanato, não dou conta de cortar nada reto, mas esse método é muito fácil de acompanhar. Imprimi numa folha mais grossinha na impressora daqui de casa mesmo e ficou perfeito. Montei o mickey e a minnie e coloquei na minha sala, todo mundo que chega aqui elogia e pergunta de onde é. É maravilhoso demais, super relaxante de fazer!&rdquo;</p>
           <div class="tc-img">
-            <span class="ph ph--t" data-img="imagens/dep-01.webp"><img src="imagens/dep-01.webp" alt="Modelo montado por Ana Paula"></span>
+            <span class="ph ph--t" data-img="imagens/dep-01.webp"><img src="imagens/dep-01.webp" loading="lazy" decoding="async" alt="Modelo montado por Ana Paula"></span>
             <span class="heart"><svg viewBox="0 0 24 24" fill="#E0453A" aria-hidden="true"><path d="M12 20.5l-1.5-1.3C5.1 14.4 2 11.6 2 8.2 2 5.6 4 3.6 6.5 3.6c1.6 0 3.1.8 3.9 2 .8-1.2 2.3-2 3.9-2C16.8 3.6 19 5.6 19 8.2c0 3.4-3.1 6.2-8.5 11z"/></svg></span>
           </div>
         </article>
 
         <article class="tcard">
           <div class="tc-head">
-            <span class="ph ph--av" data-img=""><img src="imagens/prova-02.webp" alt=""></span>
+            <span class="ph ph--av" data-img=""><img src="imagens/prova-02.webp" loading="lazy" decoding="async" alt=""></span>
             <div><div class="tc-name">Carlos M.</div><div class="tc-city">Belo Horizonte &ndash; MG</div><svg class="tc-stars" width="60" height="10" viewBox="0 0 76 13" aria-label="5 estrelas"><use href="#i-stars" width="76" height="13"/></svg></div>
           </div>
           <p class="tc-quote">&ldquo;Cara, sensacional! Confesso que comprei com o pé atrás achando que ia ser uma dor de cabeça pra montar, mas o negócio é viciante demais. Aquele esquema dos números guia tudo, não tem erro. Montei o coringa no final de semana e o acabamento ficou surreal. Meu irmão veio aqui em casa, bateu o olho e achou que eu tinha pagado 400 reais numa loja de colecionador. Valeu cada centavo, recomendo de olhos fechados!&rdquo;</p>
           <div class="tc-img">
-            <span class="ph ph--t" data-img="imagens/dep-02.webp"><img src="imagens/dep-02.webp" alt="Modelo montado por Carlos M."></span>
+            <span class="ph ph--t" data-img="imagens/dep-02.webp"><img src="imagens/dep-02.webp" loading="lazy" decoding="async" alt="Modelo montado por Carlos M."></span>
             <span class="heart"><svg viewBox="0 0 24 24" fill="#E0453A" aria-hidden="true"><path d="M12 20.5l-1.5-1.3C5.1 14.4 2 11.6 2 8.2 2 5.6 4 3.6 6.5 3.6c1.6 0 3.1.8 3.9 2 .8-1.2 2.3-2 3.9-2C16.8 3.6 19 5.6 19 8.2c0 3.4-3.1 6.2-8.5 11z"/></svg></span>
           </div>
         </article>
 
         <article class="tcard">
           <div class="tc-head">
-            <span class="ph ph--av" data-img=""><img src="imagens/prova-03.webp" alt=""></span>
+            <span class="ph ph--av" data-img=""><img src="imagens/prova-03.webp" loading="lazy" decoding="async" alt=""></span>
             <div><div class="tc-name">Juliana T.</div><div class="tc-city">Curitiba &ndash; PR</div><svg class="tc-stars" width="60" height="10" viewBox="0 0 76 13" aria-label="5 estrelas"><use href="#i-stars" width="76" height="13"/></svg></div>
           </div>
           <p class="tc-quote">&ldquo;Passando só pra agradecer porque esse material foi o melhor achado do meu ano! Comprei pra fazer com a minha filha e a gente não consegue mais parar de montar. É muito intuitivo, os arquivos vêm perfeitinhos e tudo se encaixa certinho. Foi a primeira vez que consegui tirar ela da frente do tablet uma tarde inteira rindo e montando junto comigo. Podem comprar sem medo, a entrega é na hora e o material é impecável!&rdquo;</p>
           <div class="tc-img">
-            <span class="ph ph--t" data-img="imagens/dep-03.webp"><img src="imagens/dep-03.webp" alt="Modelo montado por Juliana T."></span>
+            <span class="ph ph--t" data-img="imagens/dep-03.webp"><img src="imagens/dep-03.webp" loading="lazy" decoding="async" alt="Modelo montado por Juliana T."></span>
             <span class="heart"><svg viewBox="0 0 24 24" fill="#E0453A" aria-hidden="true"><path d="M12 20.5l-1.5-1.3C5.1 14.4 2 11.6 2 8.2 2 5.6 4 3.6 6.5 3.6c1.6 0 3.1.8 3.9 2 .8-1.2 2.3-2 3.9-2C16.8 3.6 19 5.6 19 8.2c0 3.4-3.1 6.2-8.5 11z"/></svg></span>
           </div>
         </article>
@@ -1055,7 +1057,7 @@
         <span class="hot-tag">Mais escolhido</span>
         <h3>Acesso Completo</h3>
 
-        <span class="ph ph--of" data-img="imagens/oferta-completo.webp"><img src="imagens/oferta-completo.webp" alt="Tudo o que está incluído no acesso completo"></span>
+        <span class="ph ph--of" data-img="imagens/oferta-completo.webp"><img src="imagens/oferta-completo.webp" loading="lazy" decoding="async" alt="Tudo o que está incluído no acesso completo"></span>
 
         <hr class="plan-hr">
 
@@ -1281,8 +1283,8 @@
 
   /* esconde a <img> enquanto o arquivo ainda não existe na pasta imagens/ */
   (function(){
-    function hide(im){im.style.visibility="hidden";if(im.parentNode)im.parentNode.classList.remove("is-loaded");}
-    function show(im){im.style.visibility="visible";if(im.parentNode)im.parentNode.classList.add("is-loaded");}
+    function hide(im){im.style.visibility="hidden";if(im.parentNode){im.parentNode.classList.remove("is-loaded");im.parentNode.classList.add("is-missing");}}
+    function show(im){im.style.visibility="visible";if(im.parentNode){im.parentNode.classList.add("is-loaded");im.parentNode.classList.remove("is-missing");}}
     Array.prototype.forEach.call(document.querySelectorAll(".ph img"),function(im){
       im.addEventListener("error",function(){hide(im);});
       im.addEventListener("load",function(){show(im);});
