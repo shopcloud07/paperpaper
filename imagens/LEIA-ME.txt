@@ -44,6 +44,15 @@ galeria-08.webp .................... 557 x 557 px
    segunda. Se trocar alguma, mantenha QUADRADA para nao cortar.
 
 
+POR DENTRO DOS MOLDES (3 arquivos)  - JA ESTAO NA PASTA
+--------------------------------------------------------
+modulo-01.webp ..................... 665 x 1717 px  (vertical)  - Stitch
+modulo-02.webp ..................... 665 x 1717 px              - Mario
+modulo-03.webp ..................... 665 x 1717 px              - Banguela
+   As folhas de instrucao aparecem inteiras, sem corte. Se trocar,
+   mantenha 665 x 1717 (ou a mesma proporcao).
+
+
 DEPOIMENTOS (3 fotos + 3 avatares)  - FOTOS JA ESTAO NA PASTA
 -------------------------------------------------------------
 dep-01.webp ........................ 558 x 558 px  (quadrada)  - Ana Paula
@@ -79,7 +88,7 @@ b-04.webp .......................... 962 x 962 px
    Zoologico Geometrico - leao, cervo ou lobo angular.
 
 
-TOTAL: 22 arquivos
+TOTAL: 25 arquivos
 
 
 OBSERVACOES

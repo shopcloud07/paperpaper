@@ -768,6 +768,87 @@
   }
   .foot-copy{margin:11px 0 0;font-size:.72rem;color:#8A97A9;}
 
+  /* ---------- selo acima do título ---------- */
+  .kicker{
+    display:inline-block;
+    margin-bottom:12px;
+    background:var(--white);
+    color:var(--blue);
+    border:1px solid var(--line-2);
+    border-radius:999px;
+    padding:5px 14px;
+    font-family:"Montserrat",sans-serif;
+    font-size:.7rem;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    box-shadow:var(--sh);
+  }
+  .center{text-align:center;}
+
+  /* ---------- como funciona ---------- */
+  .how{
+    margin-top:clamp(26px,3.4vw,36px);
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+    counter-reset:how;
+  }
+  .how-card{
+    position:relative;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:26px 20px 30px;
+    text-align:center;
+    box-shadow:var(--sh);
+  }
+  .how-ic{
+    width:62px;height:62px;
+    margin:0 auto;
+    border-radius:50%;
+    background:var(--tint);
+    border:1px dashed #BCD6F7;
+    display:grid;
+    place-items:center;
+    color:var(--blue);
+  }
+  .how-ic svg{width:28px;height:28px;display:block;}
+  .how-card h3{margin:16px 0 6px;font-size:.95rem;font-weight:800;text-transform:uppercase;letter-spacing:.01em;}
+  .how-card p{margin:0;font-size:.82rem;line-height:1.55;color:var(--muted);}
+  .how-num{
+    position:absolute;
+    right:16px;bottom:-14px;
+    width:30px;height:30px;
+    border-radius:50%;
+    background:var(--blue);
+    color:#fff;
+    border:3px solid var(--white);
+    display:grid;
+    place-items:center;
+    font-family:"Montserrat",sans-serif;
+    font-size:.8rem;
+    font-weight:800;
+    box-shadow:0 4px 10px rgba(47,127,239,.35);
+  }
+
+  /* ---------- por dentro dos moldes ---------- */
+  .inside{
+    margin-top:clamp(24px,3.2vw,34px);
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+  }
+  .inside-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:10px;
+    box-shadow:var(--sh-md);
+  }
+  .ph--sheet{aspect-ratio:665/1717;border-radius:7px;}
+  .inside-hint{display:none;margin:10px 0 0;font-size:.74rem;color:var(--muted);text-align:center;}
+
   /* ---------- responsivo ---------- */
   @media (max-width:940px){
     .grid4{grid-template-columns:repeat(2,1fr);}
@@ -777,7 +858,50 @@
     .tgrid{grid-template-columns:1fr;max-width:460px;margin-inline:auto;}
   }
   @media (max-width:760px){
-    .grid3{grid-template-columns:1fr;}
+    .grid3{grid-template-columns:1fr;max-width:420px;margin-inline:auto;gap:14px;}
+    /* celular: texto à esquerda, foto pequena à direita */
+    .step{
+      display:grid;
+      grid-template-columns:1fr 112px;
+      grid-template-rows:auto auto;
+      align-content:center;
+      column-gap:14px;
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:14px;
+      box-shadow:var(--sh);
+    }
+    .step .ph{grid-column:2;grid-row:1 / 3;align-self:center;border-radius:9px;}
+    .step h3{grid-column:1;grid-row:1;margin:0 0 5px;align-self:end;}
+    .step p{grid-column:1;grid-row:2;align-self:start;}
+    .how{grid-template-columns:1fr;max-width:420px;margin-inline:auto;gap:20px;}
+    /* celular: texto à esquerda, ícone à direita (igual aos passos do método) */
+    .how-card{
+      display:grid;
+      grid-template-columns:1fr 62px;
+      grid-template-rows:auto auto;
+      align-content:center;
+      column-gap:14px;
+      padding:16px 16px 18px;
+      text-align:left;
+    }
+    .how-ic{grid-column:2;grid-row:1 / 3;align-self:center;margin:0;}
+    .how-card h3{grid-column:1;grid-row:1;margin:0 0 5px;align-self:end;}
+    .how-card p{grid-column:1;grid-row:2;align-self:start;}
+    .how-num{right:14px;bottom:-12px;width:26px;height:26px;font-size:.72rem;}
+    .inside{
+      display:flex;
+      gap:14px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      margin-inline:-24px;
+      padding:4px 24px 14px;
+      scrollbar-width:none;
+    }
+    .inside::-webkit-scrollbar{display:none;}
+    .inside-card{flex:0 0 72%;scroll-snap-align:center;}
+    .inside-hint{display:block;}
     .plans{grid-template-columns:1fr;max-width:420px;gap:32px;}
     .plan-foot{margin-top:24px;}
     .warranty{flex-direction:column;text-align:center;}
@@ -788,6 +912,7 @@
   }
   @media (max-width:480px){
     .sec,.hero,.final,.foot,.sec--blue{padding-inline:16px;}
+    .inside{margin-inline:-16px;padding-inline:16px;}
     .grid8{gap:10px;}
     .btn-green{width:100%;max-width:340px;padding:15px 18px;font-size:.78rem;line-height:1.25;}
     .plans{gap:30px;}
@@ -888,7 +1013,7 @@
       </article>
       <article class="step">
         <span class="ph ph--sq" data-img="imagens/met-02.webp"><img src="imagens/met-02.webp" loading="lazy" decoding="async" alt="Abas de papel se encaixando"></span>
-        <h3>2. Encaixe Preditivo</h3>
+        <h3>2. Encaixes numerados</h3>
         <p>Encaixes perfeitos que mostram exatamente onde colar.</p>
       </article>
       <article class="step">
@@ -900,8 +1025,37 @@
   </div>
 </section>
 
-<!-- ============ galeria ============ -->
+<!-- ============ como funciona ============ -->
 <section class="sec sec--tint">
+  <div class="in center">
+    <span class="kicker">Simples assim!</span>
+    <h2>Do seu celular <span class="b">para suas mãos</span></h2>
+
+    <div class="how">
+      <article class="how-card">
+        <span class="how-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/><path d="M2.5 3.5h3l2.4 11.2a1.6 1.6 0 0 0 1.6 1.3h8.1a1.6 1.6 0 0 0 1.6-1.2l1.5-6.3H6.4"/></svg></span>
+        <h3>1. Escolha seu plano</h3>
+        <p>Pagamento 100% seguro. Finalizou? Receba o acesso automaticamente na hora no seu e-mail e WhatsApp.</p>
+        <span class="how-num" aria-hidden="true">1</span>
+      </article>
+      <article class="how-card">
+        <span class="how-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11M7.5 10l4.5 4.5 4.5-4.5"/><path d="M4 15.5v2.5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2.5"/></svg></span>
+        <h3>2. Baixe e imprima</h3>
+        <p>Arquivos em PDF de alta resolução, prontos para imprimir em casa ou na gráfica. Dica: papel 180g para ficar perfeito.</p>
+        <span class="how-num" aria-hidden="true">2</span>
+      </article>
+      <article class="how-card">
+        <span class="how-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.1 15.9M14.5 14.5L20 20M8.1 8.1L12 12"/></svg></span>
+        <h3>3. Monte e crie</h3>
+        <p>Recorte, cole e veja sua criação ganhar vida. É um hobby relaxante, e o resultado fica lindo de verdade.</p>
+        <span class="how-num" aria-hidden="true">3</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ galeria ============ -->
+<section class="sec">
   <div class="in">
     <h2>Veja alguns <span class="b">exemplos dos moldes</span></h2>
     <p class="sub">Confira uma pequena demonstração de imagens reais dos moldes que você terá disponíveis na sua coleção</p>
@@ -926,45 +1080,18 @@
   </div>
 </section>
 
-<!-- ============ bônus ============ -->
-<section class="sec sec--tint2">
-  <div class="in">
-    <h2>Bônus exclusivos grátis hoje!</h2>
-    <p class="sub">Todos incluídos de graça no Kit Premium:</p>
+<!-- ============ por dentro dos moldes ============ -->
+<section class="sec sec--tint">
+  <div class="in center">
+    <span class="kicker">A biblioteca dos +5000 moldes!</span>
+    <h2>Veja por dentro <span class="b">como são os moldes</span> que você vai receber</h2>
 
-    <div class="grid4">
-      <article class="bonus">
-        <span class="ph ph--sq" data-img="imagens/b-01.webp"><img src="imagens/b-01.webp" loading="lazy" decoding="async" alt="Carros esportivos de papel em escala"></span>
-        <span class="tag">Bônus 1</span>
-        <h3>Garagem Supercars 3D</h3>
-        <p>Réplicas em escala de clássicos e esportivos. Monte sua própria coleção de estante sem gastar R$ 500 em miniaturas de metal.</p>
-        <div class="bonus-price"><span class="old">R$ 27,90</span><span class="free">Grátis</span></div>
-      </article>
-
-      <article class="bonus">
-        <span class="ph ph--sq" data-img="imagens/b-02.webp"><img src="imagens/b-02.webp" loading="lazy" decoding="async" alt="Busto de herói em papel montado na parede"></span>
-        <span class="tag">Bônus 2</span>
-        <h3>Pack Heróis</h3>
-        <p>Bustos em tamanho real para colocar na parede ou estante. A mesma estética de uma peça colecionável de R$ 800 de loja geek por menos de R$ 10 em folhas e cola.</p>
-        <div class="bonus-price"><span class="old">R$ 47,90</span><span class="free">Grátis</span></div>
-      </article>
-
-      <article class="bonus">
-        <span class="ph ph--sq" data-img="imagens/b-03.webp"><img src="imagens/b-03.webp" loading="lazy" decoding="async" alt="Personagem de anime em papel lowpoly"></span>
-        <span class="tag">Bônus 3</span>
-        <h3>Santuário Animes &amp; Mangás</h3>
-        <p>Pare de queimar R$ 350 importando action figure de plástico que quebra na entrega. Monte seus próprios personagens favoritos em lowpoly com presença de peça de museu.</p>
-        <div class="bonus-price"><span class="old">R$ 37,90</span><span class="free">Grátis</span></div>
-      </article>
-
-      <article class="bonus">
-        <span class="ph ph--sq" data-img="imagens/b-04.webp"><img src="imagens/b-04.webp" loading="lazy" decoding="async" alt="Escultura geométrica de animal em papel"></span>
-        <span class="tag">Bônus 4</span>
-        <h3>Zoológico Geométrico</h3>
-        <p>Aquelas esculturas angulares de leões, cervos e lobos que você vê por R$ 250 em vitrine de shopping de luxo. Monte na mesa da sua sala gastando troco de pão.</p>
-        <div class="bonus-price"><span class="old">R$ 27,90</span><span class="free">Grátis</span></div>
-      </article>
+    <div class="inside">
+      <div class="inside-card"><span class="ph ph--sheet" data-img="imagens/modulo-01.webp"><img src="imagens/modulo-01.webp" width="665" height="1717" loading="lazy" decoding="async" alt="Molde do Stitch com instruções e passo a passo"></span></div>
+      <div class="inside-card"><span class="ph ph--sheet" data-img="imagens/modulo-02.webp"><img src="imagens/modulo-02.webp" width="665" height="1717" loading="lazy" decoding="async" alt="Molde do Mario com instruções e passo a passo"></span></div>
+      <div class="inside-card"><span class="ph ph--sheet" data-img="imagens/modulo-03.webp"><img src="imagens/modulo-03.webp" width="665" height="1717" loading="lazy" decoding="async" alt="Molde do Banguela com instruções e passo a passo"></span></div>
     </div>
+    <p class="inside-hint">Arraste para o lado para ver mais &rarr;</p>
   </div>
 </section>
 
@@ -1011,6 +1138,48 @@
           </div>
         </article>
 
+    </div>
+  </div>
+</section>
+
+<!-- ============ bônus ============ -->
+<section class="sec sec--tint2">
+  <div class="in">
+    <h2>Bônus exclusivos grátis hoje!</h2>
+    <p class="sub">Todos incluídos de graça no Kit Premium:</p>
+
+    <div class="grid4">
+      <article class="bonus">
+        <span class="ph ph--sq" data-img="imagens/b-01.webp"><img src="imagens/b-01.webp" loading="lazy" decoding="async" alt="Carros esportivos de papel em escala"></span>
+        <span class="tag">Bônus 1</span>
+        <h3>Garagem Supercars 3D</h3>
+        <p>Réplicas em escala de clássicos e esportivos. Monte sua própria coleção de estante sem gastar R$ 500 em miniaturas de metal.</p>
+        <div class="bonus-price"><span class="old">R$ 27,90</span><span class="free">Grátis</span></div>
+      </article>
+
+      <article class="bonus">
+        <span class="ph ph--sq" data-img="imagens/b-02.webp"><img src="imagens/b-02.webp" loading="lazy" decoding="async" alt="Busto de herói em papel montado na parede"></span>
+        <span class="tag">Bônus 2</span>
+        <h3>Pack Heróis</h3>
+        <p>Bustos em tamanho real para colocar na parede ou estante. A mesma estética de uma peça colecionável de R$ 800 de loja geek por menos de R$ 10 em folhas e cola.</p>
+        <div class="bonus-price"><span class="old">R$ 47,90</span><span class="free">Grátis</span></div>
+      </article>
+
+      <article class="bonus">
+        <span class="ph ph--sq" data-img="imagens/b-03.webp"><img src="imagens/b-03.webp" loading="lazy" decoding="async" alt="Personagem de anime em papel lowpoly"></span>
+        <span class="tag">Bônus 3</span>
+        <h3>Santuário Animes &amp; Mangás</h3>
+        <p>Pare de queimar R$ 350 importando action figure de plástico que quebra na entrega. Monte seus próprios personagens favoritos em lowpoly com presença de peça de museu.</p>
+        <div class="bonus-price"><span class="old">R$ 37,90</span><span class="free">Grátis</span></div>
+      </article>
+
+      <article class="bonus">
+        <span class="ph ph--sq" data-img="imagens/b-04.webp"><img src="imagens/b-04.webp" loading="lazy" decoding="async" alt="Escultura geométrica de animal em papel"></span>
+        <span class="tag">Bônus 4</span>
+        <h3>Zoológico Geométrico</h3>
+        <p>Aquelas esculturas angulares de leões, cervos e lobos que você vê por R$ 250 em vitrine de shopping de luxo. Monte na mesa da sua sala gastando troco de pão.</p>
+        <div class="bonus-price"><span class="old">R$ 27,90</span><span class="free">Grátis</span></div>
+      </article>
     </div>
   </div>
 </section>
