@@ -19,10 +19,24 @@
     })(window, document, "clarity", "script", "uv3gz4b1jz");
 </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap">
+<!-- fontes hospedadas junto com a página (antes vinham do Google Fonts e travavam a
+     primeira pintura no 4G). Suba a pasta "fontes/" junto com o index.html. -->
 <style>
+  /* latin (português) */
+  @font-face{font-family:"Montserrat";font-style:normal;font-weight:600 800;font-display:swap;
+    src:url(fontes/montserrat-latin.woff2) format("woff2");
+    unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+  @font-face{font-family:"Open Sans";font-style:normal;font-weight:400 700;font-display:swap;
+    src:url(fontes/opensans-latin.woff2) format("woff2");
+    unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+  /* latin-ext (só baixa se aparecer algum caractere fora do latin) */
+  @font-face{font-family:"Montserrat";font-style:normal;font-weight:600 800;font-display:swap;
+    src:url(fontes/montserrat-latin-ext.woff2) format("woff2");
+    unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+  @font-face{font-family:"Open Sans";font-style:normal;font-weight:400 700;font-display:swap;
+    src:url(fontes/opensans-latin-ext.woff2) format("woff2");
+    unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+
   *,*::before,*::after{box-sizing:border-box;}
   html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
   img{max-width:100%;}
@@ -1007,17 +1021,17 @@
 
     <div class="grid3">
       <article class="step">
-        <span class="ph ph--sq" data-img="imagens/met-01.webp"><img src="imagens/met-01.webp" loading="lazy" decoding="async" alt="Molde com peças numeradas"></span>
+        <span class="ph ph--sq" data-img="imagens/met-01.webp"><img data-src="imagens/met-01.webp" loading="lazy" decoding="async" alt="Molde com peças numeradas"></span>
         <h3>1. Numeração Lógica</h3>
         <p>Peças numeradas para você identificar cada parte sem confusão.</p>
       </article>
       <article class="step">
-        <span class="ph ph--sq" data-img="imagens/met-02.webp"><img src="imagens/met-02.webp" loading="lazy" decoding="async" alt="Abas de papel se encaixando"></span>
+        <span class="ph ph--sq" data-img="imagens/met-02.webp"><img data-src="imagens/met-02.webp" loading="lazy" decoding="async" alt="Abas de papel se encaixando"></span>
         <h3>2. Encaixes numerados</h3>
         <p>Encaixes perfeitos que mostram exatamente onde colar.</p>
       </article>
       <article class="step">
-        <span class="ph ph--sq" data-img="imagens/met-03.webp"><img src="imagens/met-03.webp" loading="lazy" decoding="async" alt="Molde de papercraft finalizado, pronto para decoração"></span>
+        <span class="ph ph--sq" data-img="imagens/met-03.webp"><img data-src="imagens/met-03.webp" loading="lazy" decoding="async" alt="Molde de papercraft finalizado, pronto para decoração"></span>
         <h3>3. Molde Finalizado</h3>
         <p>O resultado ganha forma diante dos seus olhos e se transforma em uma verdadeira peça de decoração.</p>
       </article>
@@ -1061,14 +1075,14 @@
     <p class="sub">Confira uma pequena demonstração de imagens reais dos moldes que você terá disponíveis na sua coleção</p>
 
     <div class="grid8">
-      <span class="ph ph--tile" data-img="imagens/galeria-01.webp"><img src="imagens/galeria-01.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-02.webp"><img src="imagens/galeria-02.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-03.webp"><img src="imagens/galeria-03.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-04.webp"><img src="imagens/galeria-04.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-05.webp"><img src="imagens/galeria-05.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-06.webp"><img src="imagens/galeria-06.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-07.webp"><img src="imagens/galeria-07.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-08.webp"><img src="imagens/galeria-08.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-01.webp"><img data-src="imagens/galeria-01.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-02.webp"><img data-src="imagens/galeria-02.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-03.webp"><img data-src="imagens/galeria-03.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-04.webp"><img data-src="imagens/galeria-04.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-05.webp"><img data-src="imagens/galeria-05.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-06.webp"><img data-src="imagens/galeria-06.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-07.webp"><img data-src="imagens/galeria-07.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-08.webp"><img data-src="imagens/galeria-08.webp" loading="lazy" decoding="async" alt="Modelo de papercraft"></span>
     </div>
 
     <div class="more">
@@ -1086,10 +1100,10 @@
     <span class="kicker">A biblioteca dos +5000 moldes!</span>
     <h2>Veja por dentro <span class="b">como são os moldes</span> que você vai receber</h2>
 
-    <div class="inside">
-      <div class="inside-card"><span class="ph ph--sheet" data-img="imagens/modulo-01.webp"><img src="imagens/modulo-01.webp" width="665" height="1717" loading="lazy" decoding="async" alt="Molde do Stitch com instruções e passo a passo"></span></div>
-      <div class="inside-card"><span class="ph ph--sheet" data-img="imagens/modulo-02.webp"><img src="imagens/modulo-02.webp" width="665" height="1717" loading="lazy" decoding="async" alt="Molde do Mario com instruções e passo a passo"></span></div>
-      <div class="inside-card"><span class="ph ph--sheet" data-img="imagens/modulo-03.webp"><img src="imagens/modulo-03.webp" width="665" height="1717" loading="lazy" decoding="async" alt="Molde do Banguela com instruções e passo a passo"></span></div>
+    <div class="inside" data-lazy-grupo>
+      <div class="inside-card"><span class="ph ph--sheet" data-img="imagens/modulo-01.webp"><img data-src="imagens/modulo-01.webp" width="665" height="1717" loading="lazy" decoding="async" alt="Molde do Stitch com instruções e passo a passo"></span></div>
+      <div class="inside-card"><span class="ph ph--sheet" data-img="imagens/modulo-02.webp"><img data-src="imagens/modulo-02.webp" width="665" height="1717" loading="lazy" decoding="async" alt="Molde do Mario com instruções e passo a passo"></span></div>
+      <div class="inside-card"><span class="ph ph--sheet" data-img="imagens/modulo-03.webp"><img data-src="imagens/modulo-03.webp" width="665" height="1717" loading="lazy" decoding="async" alt="Molde do Banguela com instruções e passo a passo"></span></div>
     </div>
     <p class="inside-hint">Arraste para o lado para ver mais &rarr;</p>
   </div>
@@ -1457,8 +1471,39 @@
     Array.prototype.forEach.call(document.querySelectorAll(".ph img"),function(im){
       im.addEventListener("error",function(){hide(im);});
       im.addEventListener("load",function(){show(im);});
+      if(im.hasAttribute("data-src"))return; /* ainda nao foi pedida: espera o observador abaixo */
       if(im.complete){im.naturalWidth===0?hide(im):show(im);}
     });
+
+    /* imagens com data-src so comecam a baixar quando chegam perto da tela.
+       O loading="lazy" sozinho nao basta: no 4G o Chrome baixa tudo ate ~2500px
+       abaixo da tela e isso disputava banda com a imagem do topo.
+       Imagens dentro de [data-lazy-grupo] (carrossel lateral) carregam juntas. */
+    var pend=document.querySelectorAll("img[data-src]");
+    function carrega(im){
+      if(!im.hasAttribute("data-src"))return;
+      im.loading="eager"; /* senao o lazy nativo segura as que estao fora da tela na horizontal */
+      im.src=im.getAttribute("data-src");
+      im.removeAttribute("data-src");
+    }
+    if(!("IntersectionObserver" in window)){
+      Array.prototype.forEach.call(pend,carrega);
+    }else{
+      var io=new IntersectionObserver(function(ents){
+        ents.forEach(function(e){
+          if(!e.isIntersecting)return;
+          io.unobserve(e.target);
+          if(e.target.tagName==="IMG")carrega(e.target);
+          else Array.prototype.forEach.call(e.target.querySelectorAll("img[data-src]"),carrega);
+        });
+      },{rootMargin:"400px 0px"});
+      var grupos=[];
+      Array.prototype.forEach.call(pend,function(im){
+        var g=im.closest("[data-lazy-grupo]");
+        if(!g){io.observe(im);return;}
+        if(grupos.indexOf(g)<0){grupos.push(g);io.observe(g);}
+      });
+    }
   })();
 
   /* pop-up de upgrade ao clicar no botao do acesso basico */
