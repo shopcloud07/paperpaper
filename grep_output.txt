@@ -1,5 +1,0 @@
-  var CHECKOUT_DOMAINS = ['ggcheckout.com', 'pay.kiwify.com.br'];
-
-         <a href="https://www.ggcheckout.com.br/checkout/v4/Oy2bpEcoiZANY89cwzEs" class="block w-full py-5 rounded-2xl bg-[#1A93FA] text-white text-2xl font-normal text-center uppercase tracking-wider hover:bg-blue-600 transition-all shadow-[0_6px_0_#B2DBFD] hover:shadow-[0_4px_0_#B2DBFD] hover:translate-y-[2px] border-2 border-[#000000]" style="font-family: 'Permanent Marker', cursive; background-color: #1A93FA !important; border-color: #000000 !important;">
-
-            <a href="https://www.ggcheckout.com.br/checkout/v4/QAXdzRtDqPustvyjR5G8" class="modal-btn" style="display:block;width:100%;padding:14px;border-radius:10px;background:#1A93FA;color:#fff;font-size:17px;font-weight:700;text-align:center;text-decoration:none;text-transform:uppercase;letter-spacing:0.06em;border:2px solid #000;box-shadow:0 4px 0 #000;margin-bottom:14px;box-sizing:border-box;font-family:'Permanent Marker',cursive;">
