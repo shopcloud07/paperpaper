@@ -1,0 +1,3 @@
+  var CHECKOUT_DOMAINS = ['ggcheckout.com', 'pay.kiwify.com.br'];
+         <a href="https://www.ggcheckout.com.br/checkout/v4/Oy2bpEcoiZANY89cwzEs" class="b
+            <a href="https://www.ggcheckout.com.br/checkout/v4/QAXdzRtDqPustvyjR5G8" class="m

@@ -1,0 +1,4 @@
+            quero só o básico
+                não, obrigado. quero só o básico por r$10,00
+        // encontrar o botão "quero só o básico" pelo href ou texto e adicionar o onclick
+'block') && link.textcontent.includes('quero só o básico')) {
