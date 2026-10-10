@@ -13,11 +13,19 @@ Todas as imagens da pagina usam .webp. Se um dia voce precisar de .jpg
 ou .png em algum arquivo, e so avisar que eu troco no index.html.
 
 
-HERO (1 arquivo)  - JA ESTA NA PASTA
-------------------------------------
-hero.webp ......................... 1022 x 681 px  (3:2)
+HERO (2 arquivos)  - JA ESTAO NA PASTA
+--------------------------------------
+hero.webp ......................... 1022 x 681 px  (3:2)   85 KB
    A arte principal da dobra. Se trocar, mantenha a proporcao 3:2
    (ex.: 1500 x 1000) para nada ser cortado.
+hero-640.webp ..................... 640 x 426 px   (3:2)   34 KB
+   A MESMA imagem em tamanho reduzido, usada so no celular. E a
+   imagem mais importante da pagina para a velocidade: o celular
+   baixa 34 KB em vez de 85 KB.
+   IMPORTANTE: se voce trocar a hero.webp, precisa gerar a
+   hero-640.webp de novo a partir dela (mesma imagem, 640 px de
+   largura), senao o celular vai continuar mostrando a arte antiga.
+   Qualquer site de redimensionar imagem resolve, ou me peca.
 
 
 METODO JAPONES - 3 PASSOS  - JA ESTAO NA PASTA
@@ -79,7 +87,29 @@ b-04.webp .......................... 962 x 962 px
    Zoologico Geometrico - leao, cervo ou lobo angular.
 
 
-TOTAL: 22 arquivos
+TOTAL: 23 arquivos
+
+
+COMO AS IMAGENS CARREGAM (nao mexa sem necessidade)
+---------------------------------------------------
+A pagina so baixa a imagem do topo quando abre. Todas as outras
+ficam esperando e so sao baixadas quando o visitante chega perto
+delas rolando a tela. Isso derrubou o peso de abertura de 1,3 MB
+para 187 KB.
+
+No codigo isso aparece assim:
+  - hero: src + srcset + fetchpriority="high"   (prioridade maxima)
+  - galeria, bonus e metodo: data-src           (adiada por script)
+  - demais imagens: loading="lazy"              (adiada pelo navegador)
+
+Se um dia voce adicionar uma imagem nova na pagina, copie o padrao
+de uma vizinha. Imagem nova com src normal e sem lazy volta a pesar
+na abertura.
+
+A caixa cinza-clara que aparece no lugar da imagem some sozinha
+quando ela chega. A caixa TRACEJADA com o nome do arquivo escrito
+dentro so aparece quando o arquivo esta faltando na pasta - se voce
+ver isso na pagina publicada, e porque aquele arquivo nao subiu.
 
 
 OBSERVACOES

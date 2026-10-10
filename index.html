@@ -21,7 +21,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap"></noscript>
 <style>
   *,*::before,*::after{box-sizing:border-box;}
   html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
@@ -68,11 +69,19 @@
     width:100%;
     overflow:hidden;
     border-radius:11px;
-    border:1px dashed var(--line-2);
+    border:1px solid transparent;
+    background:var(--tint-2);
+  }
+  /* o marcador tracejado com o nome do arquivo so entra na classe .is-missing,
+     colocada pelo script quando a imagem NAO existe. Enquanto ela esta apenas
+     carregando (lazy), o visitante ve so um retangulo cinza claro. */
+  .ph.is-missing{
+    border-color:var(--line-2);
+    border-style:dashed;
     background:repeating-linear-gradient(45deg,#F7F9FC 0 10px,#F1F5FB 10px 20px);
   }
   .ph::after{
-    content:attr(data-img);
+    content:"";
     position:absolute;
     inset:0;
     display:grid;
@@ -84,6 +93,7 @@
     color:#96A3B6;
     pointer-events:none;
   }
+  .ph img:not([src]){opacity:0;}
   .ph img{
     position:relative;
     z-index:1;
@@ -93,6 +103,7 @@
     object-fit:cover;
   }
   .ph--hero{aspect-ratio:3/2;border-radius:16px;}
+  .ph.is-missing::after{content:attr(data-img);}
   .ph.is-loaded{border-color:transparent;background:none;}
   .ph--sq{aspect-ratio:1/1;}
   .ph--tile{aspect-ratio:1/1;box-shadow:var(--sh);}
@@ -105,7 +116,7 @@
     border-style:solid;
     background:#DCE4EF;
   }
-  .ph--av::after{content:"";}
+  .ph--av::after,.ph--av.is-missing::after{content:"";}
   .ph--av img{object-position:50% 28%;}
 
   .sec{padding-inline:24px;padding-block:clamp(40px,5.4vw,62px);}
@@ -825,7 +836,7 @@
 
     <div class="hero-img">
       <span class="ph ph--hero" data-img="imagens/hero.webp">
-        <img src="imagens/hero.webp" alt="Modelos de papercraft montados sobre a mesa">
+        <img src="imagens/hero.webp" srcset="imagens/hero-640.webp 640w, imagens/hero.webp 1022w" sizes="(max-width:948px) calc(100vw - 48px), 900px" alt="Modelos de papercraft montados sobre a mesa" fetchpriority="high" decoding="async">
       </span>
     </div>
 
@@ -880,17 +891,17 @@
 
     <div class="grid3">
       <article class="step">
-        <span class="ph ph--sq" data-img="imagens/met-01.webp"><img src="imagens/met-01.webp" alt="Molde com peças numeradas"></span>
+        <span class="ph ph--sq" data-img="imagens/met-01.webp"><img data-src="imagens/met-01.webp" alt="Molde com peças numeradas" loading="lazy" decoding="async"></span>
         <h3>1. Numeração Lógica</h3>
         <p>Peças numeradas para você identificar cada parte sem confusão.</p>
       </article>
       <article class="step">
-        <span class="ph ph--sq" data-img="imagens/met-02.webp"><img src="imagens/met-02.webp" alt="Abas de papel se encaixando"></span>
+        <span class="ph ph--sq" data-img="imagens/met-02.webp"><img data-src="imagens/met-02.webp" alt="Abas de papel se encaixando" loading="lazy" decoding="async"></span>
         <h3>2. Encaixe Preditivo</h3>
         <p>Encaixes perfeitos que mostram exatamente onde colar.</p>
       </article>
       <article class="step">
-        <span class="ph ph--sq" data-img="imagens/met-03.webp"><img src="imagens/met-03.webp" alt="Molde de papercraft finalizado, pronto para decoração"></span>
+        <span class="ph ph--sq" data-img="imagens/met-03.webp"><img data-src="imagens/met-03.webp" alt="Molde de papercraft finalizado, pronto para decoração" loading="lazy" decoding="async"></span>
         <h3>3. Molde Finalizado</h3>
         <p>O resultado ganha forma diante dos seus olhos e se transforma em uma verdadeira peça de decoração.</p>
       </article>
@@ -905,14 +916,14 @@
     <p class="sub">Confira uma pequena demonstração de imagens reais dos moldes que você terá disponíveis na sua coleção</p>
 
     <div class="grid8">
-      <span class="ph ph--tile" data-img="imagens/galeria-01.webp"><img src="imagens/galeria-01.webp" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-02.webp"><img src="imagens/galeria-02.webp" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-03.webp"><img src="imagens/galeria-03.webp" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-04.webp"><img src="imagens/galeria-04.webp" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-05.webp"><img src="imagens/galeria-05.webp" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-06.webp"><img src="imagens/galeria-06.webp" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-07.webp"><img src="imagens/galeria-07.webp" alt="Modelo de papercraft"></span>
-      <span class="ph ph--tile" data-img="imagens/galeria-08.webp"><img src="imagens/galeria-08.webp" alt="Modelo de papercraft"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-01.webp"><img data-src="imagens/galeria-01.webp" alt="Modelo de papercraft" loading="lazy" decoding="async"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-02.webp"><img data-src="imagens/galeria-02.webp" alt="Modelo de papercraft" loading="lazy" decoding="async"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-03.webp"><img data-src="imagens/galeria-03.webp" alt="Modelo de papercraft" loading="lazy" decoding="async"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-04.webp"><img data-src="imagens/galeria-04.webp" alt="Modelo de papercraft" loading="lazy" decoding="async"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-05.webp"><img data-src="imagens/galeria-05.webp" alt="Modelo de papercraft" loading="lazy" decoding="async"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-06.webp"><img data-src="imagens/galeria-06.webp" alt="Modelo de papercraft" loading="lazy" decoding="async"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-07.webp"><img data-src="imagens/galeria-07.webp" alt="Modelo de papercraft" loading="lazy" decoding="async"></span>
+      <span class="ph ph--tile" data-img="imagens/galeria-08.webp"><img data-src="imagens/galeria-08.webp" alt="Modelo de papercraft" loading="lazy" decoding="async"></span>
     </div>
 
     <div class="more">
@@ -932,7 +943,7 @@
 
     <div class="grid4">
       <article class="bonus">
-        <span class="ph ph--sq" data-img="imagens/b-01.webp"><img src="imagens/b-01.webp" alt="Carros esportivos de papel em escala"></span>
+        <span class="ph ph--sq" data-img="imagens/b-01.webp"><img data-src="imagens/b-01.webp" alt="Carros esportivos de papel em escala" loading="lazy" decoding="async"></span>
         <span class="tag">Bônus 1</span>
         <h3>Garagem Supercars 3D</h3>
         <p>Réplicas em escala de clássicos e esportivos. Monte sua própria coleção de estante sem gastar R$ 500 em miniaturas de metal.</p>
@@ -940,7 +951,7 @@
       </article>
 
       <article class="bonus">
-        <span class="ph ph--sq" data-img="imagens/b-02.webp"><img src="imagens/b-02.webp" alt="Busto de herói em papel montado na parede"></span>
+        <span class="ph ph--sq" data-img="imagens/b-02.webp"><img data-src="imagens/b-02.webp" alt="Busto de herói em papel montado na parede" loading="lazy" decoding="async"></span>
         <span class="tag">Bônus 2</span>
         <h3>Pack Heróis</h3>
         <p>Bustos em tamanho real para colocar na parede ou estante. A mesma estética de uma peça colecionável de R$ 800 de loja geek por menos de R$ 10 em folhas e cola.</p>
@@ -948,7 +959,7 @@
       </article>
 
       <article class="bonus">
-        <span class="ph ph--sq" data-img="imagens/b-03.webp"><img src="imagens/b-03.webp" alt="Personagem de anime em papel lowpoly"></span>
+        <span class="ph ph--sq" data-img="imagens/b-03.webp"><img data-src="imagens/b-03.webp" alt="Personagem de anime em papel lowpoly" loading="lazy" decoding="async"></span>
         <span class="tag">Bônus 3</span>
         <h3>Santuário Animes &amp; Mangás</h3>
         <p>Pare de queimar R$ 350 importando action figure de plástico que quebra na entrega. Monte seus próprios personagens favoritos em lowpoly com presença de peça de museu.</p>
@@ -956,7 +967,7 @@
       </article>
 
       <article class="bonus">
-        <span class="ph ph--sq" data-img="imagens/b-04.webp"><img src="imagens/b-04.webp" alt="Escultura geométrica de animal em papel"></span>
+        <span class="ph ph--sq" data-img="imagens/b-04.webp"><img data-src="imagens/b-04.webp" alt="Escultura geométrica de animal em papel" loading="lazy" decoding="async"></span>
         <span class="tag">Bônus 4</span>
         <h3>Zoológico Geométrico</h3>
         <p>Aquelas esculturas angulares de leões, cervos e lobos que você vê por R$ 250 em vitrine de shopping de luxo. Monte na mesa da sua sala gastando troco de pão.</p>
@@ -975,36 +986,36 @@
     <div class="tgrid">
         <article class="tcard">
           <div class="tc-head">
-            <span class="ph ph--av" data-img=""><img src="imagens/prova-01.webp" alt=""></span>
+            <span class="ph ph--av" data-img=""><img src="imagens/prova-01.webp" alt="" loading="lazy" decoding="async"></span>
             <div><div class="tc-name">Ana Paula</div><div class="tc-city">São Paulo &ndash; SP</div><svg class="tc-stars" width="60" height="10" viewBox="0 0 76 13" aria-label="5 estrelas"><use href="#i-stars" width="76" height="13"/></svg></div>
           </div>
           <p class="tc-quote">&ldquo;Gente, eu tô simplesmente apaixonada! Eu sou a pessoa mais desastrada do mundo pra artesanato, não dou conta de cortar nada reto, mas esse método é muito fácil de acompanhar. Imprimi numa folha mais grossinha na impressora daqui de casa mesmo e ficou perfeito. Montei o mickey e a minnie e coloquei na minha sala, todo mundo que chega aqui elogia e pergunta de onde é. É maravilhoso demais, super relaxante de fazer!&rdquo;</p>
           <div class="tc-img">
-            <span class="ph ph--t" data-img="imagens/dep-01.webp"><img src="imagens/dep-01.webp" alt="Modelo montado por Ana Paula"></span>
+            <span class="ph ph--t" data-img="imagens/dep-01.webp"><img src="imagens/dep-01.webp" alt="Modelo montado por Ana Paula" loading="lazy" decoding="async"></span>
             <span class="heart"><svg viewBox="0 0 24 24" fill="#E0453A" aria-hidden="true"><path d="M12 20.5l-1.5-1.3C5.1 14.4 2 11.6 2 8.2 2 5.6 4 3.6 6.5 3.6c1.6 0 3.1.8 3.9 2 .8-1.2 2.3-2 3.9-2C16.8 3.6 19 5.6 19 8.2c0 3.4-3.1 6.2-8.5 11z"/></svg></span>
           </div>
         </article>
 
         <article class="tcard">
           <div class="tc-head">
-            <span class="ph ph--av" data-img=""><img src="imagens/prova-02.webp" alt=""></span>
+            <span class="ph ph--av" data-img=""><img src="imagens/prova-02.webp" alt="" loading="lazy" decoding="async"></span>
             <div><div class="tc-name">Carlos M.</div><div class="tc-city">Belo Horizonte &ndash; MG</div><svg class="tc-stars" width="60" height="10" viewBox="0 0 76 13" aria-label="5 estrelas"><use href="#i-stars" width="76" height="13"/></svg></div>
           </div>
           <p class="tc-quote">&ldquo;Cara, sensacional! Confesso que comprei com o pé atrás achando que ia ser uma dor de cabeça pra montar, mas o negócio é viciante demais. Aquele esquema dos números guia tudo, não tem erro. Montei o coringa no final de semana e o acabamento ficou surreal. Meu irmão veio aqui em casa, bateu o olho e achou que eu tinha pagado 400 reais numa loja de colecionador. Valeu cada centavo, recomendo de olhos fechados!&rdquo;</p>
           <div class="tc-img">
-            <span class="ph ph--t" data-img="imagens/dep-02.webp"><img src="imagens/dep-02.webp" alt="Modelo montado por Carlos M."></span>
+            <span class="ph ph--t" data-img="imagens/dep-02.webp"><img src="imagens/dep-02.webp" alt="Modelo montado por Carlos M." loading="lazy" decoding="async"></span>
             <span class="heart"><svg viewBox="0 0 24 24" fill="#E0453A" aria-hidden="true"><path d="M12 20.5l-1.5-1.3C5.1 14.4 2 11.6 2 8.2 2 5.6 4 3.6 6.5 3.6c1.6 0 3.1.8 3.9 2 .8-1.2 2.3-2 3.9-2C16.8 3.6 19 5.6 19 8.2c0 3.4-3.1 6.2-8.5 11z"/></svg></span>
           </div>
         </article>
 
         <article class="tcard">
           <div class="tc-head">
-            <span class="ph ph--av" data-img=""><img src="imagens/prova-03.webp" alt=""></span>
+            <span class="ph ph--av" data-img=""><img src="imagens/prova-03.webp" alt="" loading="lazy" decoding="async"></span>
             <div><div class="tc-name">Juliana T.</div><div class="tc-city">Curitiba &ndash; PR</div><svg class="tc-stars" width="60" height="10" viewBox="0 0 76 13" aria-label="5 estrelas"><use href="#i-stars" width="76" height="13"/></svg></div>
           </div>
           <p class="tc-quote">&ldquo;Passando só pra agradecer porque esse material foi o melhor achado do meu ano! Comprei pra fazer com a minha filha e a gente não consegue mais parar de montar. É muito intuitivo, os arquivos vêm perfeitinhos e tudo se encaixa certinho. Foi a primeira vez que consegui tirar ela da frente do tablet uma tarde inteira rindo e montando junto comigo. Podem comprar sem medo, a entrega é na hora e o material é impecável!&rdquo;</p>
           <div class="tc-img">
-            <span class="ph ph--t" data-img="imagens/dep-03.webp"><img src="imagens/dep-03.webp" alt="Modelo montado por Juliana T."></span>
+            <span class="ph ph--t" data-img="imagens/dep-03.webp"><img src="imagens/dep-03.webp" alt="Modelo montado por Juliana T." loading="lazy" decoding="async"></span>
             <span class="heart"><svg viewBox="0 0 24 24" fill="#E0453A" aria-hidden="true"><path d="M12 20.5l-1.5-1.3C5.1 14.4 2 11.6 2 8.2 2 5.6 4 3.6 6.5 3.6c1.6 0 3.1.8 3.9 2 .8-1.2 2.3-2 3.9-2C16.8 3.6 19 5.6 19 8.2c0 3.4-3.1 6.2-8.5 11z"/></svg></span>
           </div>
         </article>
@@ -1055,7 +1066,7 @@
         <span class="hot-tag">Mais escolhido</span>
         <h3>Acesso Completo</h3>
 
-        <span class="ph ph--of" data-img="imagens/oferta-completo.webp"><img src="imagens/oferta-completo.webp" alt="Tudo o que está incluído no acesso completo"></span>
+        <span class="ph ph--of" data-img="imagens/oferta-completo.webp"><img src="imagens/oferta-completo.webp" alt="Tudo o que está incluído no acesso completo" loading="lazy" decoding="async"></span>
 
         <hr class="plan-hr">
 
@@ -1262,6 +1273,31 @@
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884a9.82 9.82 0 0 1 6.988 2.896 9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/>
   </svg>
 </a>
+<script>
+  /* O script de UTM da Utmify reescreve os links da pagina. Nos links de
+     checkout isso e bom (ele carimba a origem da venda), mas no link do
+     WhatsApp ele embaralha a mensagem, inserindo caracteres invisiveis no
+     meio das palavras - o cliente abria o chat com "O...la!" quebrado.
+     Este bloco roda aqui mesmo, antes da Utmify entrar em acao, guarda o
+     endereco correto e o repoe no instante do clique.
+     Para trocar numero ou mensagem, mexa so no href do link acima. */
+  (function(){
+    var zap=document.querySelector(".zap");
+    if(!zap)return;
+    /* tira qualquer caractere invisivel, inclusive se ja tiver sido injetado */
+    function limpa(u){
+      return u.replace(/%E2%80%8[B-F]|%E2%81%A[0-9A-Fa-f]|%EF%BB%BF/gi,"")
+              .replace(/[​-‏⁠-⁯﻿]/g,"");
+    }
+    var certo=limpa(zap.getAttribute("href"));
+    zap.setAttribute("href",certo);
+    function repoe(){
+      if(zap.getAttribute("href")!==certo)zap.setAttribute("href",certo);
+    }
+    ["pointerdown","touchstart","mousedown","click","auxclick","contextmenu"]
+      .forEach(function(ev){zap.addEventListener(ev,repoe,true);});
+  })();
+</script>
 
 <script>
   /* data de hoje na barra de promoção, no formato dd/mm/aaaa */
@@ -1279,14 +1315,22 @@
     if(el)el.textContent=new Date().getFullYear();
   })();
 
-  /* esconde a <img> enquanto o arquivo ainda não existe na pasta imagens/ */
+  /* esconde a <img loading="lazy" decoding="async"> enquanto o arquivo ainda não existe na pasta imagens/ */
   (function(){
-    function hide(im){im.style.visibility="hidden";if(im.parentNode)im.parentNode.classList.remove("is-loaded");}
-    function show(im){im.style.visibility="visible";if(im.parentNode)im.parentNode.classList.add("is-loaded");}
+    function hide(im){
+      im.style.visibility="hidden";
+      if(im.parentNode){im.parentNode.classList.remove("is-loaded");im.parentNode.classList.add("is-missing");}
+    }
+    function show(im){
+      im.style.visibility="visible";
+      if(im.parentNode){im.parentNode.classList.add("is-loaded");im.parentNode.classList.remove("is-missing");}
+    }
     Array.prototype.forEach.call(document.querySelectorAll(".ph img"),function(im){
       im.addEventListener("error",function(){hide(im);});
       im.addEventListener("load",function(){show(im);});
-      if(im.complete){im.naturalWidth===0?hide(im):show(im);}
+      /* quem ainda esta com data-src nao tem src: nao e arquivo faltando, e so a
+         imagem adiada esperando a vez. Nada de marcar como ausente aqui. */
+      if(!im.dataset.src&&im.complete){im.naturalWidth===0?hide(im):show(im);}
     });
   })();
 
@@ -1326,6 +1370,28 @@
       if(ev.shiftKey&&document.activeElement===pri){ev.preventDefault();ult.focus();}
       else if(!ev.shiftKey&&document.activeElement===ult){ev.preventDefault();pri.focus();}
     });
+  })();
+
+  /* hidrata as imagens adiadas pouco antes de elas entrarem na tela */
+  (function(){
+    var alvos=document.querySelectorAll("img[data-src]");
+    if(!alvos.length)return;
+    function carrega(im){
+      if(!im.dataset.src)return;
+      im.loading="eager";
+      im.src=im.dataset.src;
+      im.removeAttribute("data-src");
+    }
+    if(!("IntersectionObserver" in window)){
+      Array.prototype.forEach.call(alvos,carrega);
+      return;
+    }
+    var obs=new IntersectionObserver(function(itens){
+      itens.forEach(function(i){
+        if(i.isIntersecting){carrega(i.target);obs.unobserve(i.target);}
+      });
+    },{rootMargin:"500px 0px"});
+    Array.prototype.forEach.call(alvos,function(im){obs.observe(im);});
   })();
 </script>
 </body>
