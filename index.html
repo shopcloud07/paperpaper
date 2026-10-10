@@ -259,6 +259,127 @@
   .trust svg{width:14px;height:14px;display:block;flex:none;}
   .trust--light li{color:rgba(255,255,255,.88);}
 
+
+  /* ---------- cena da impressora (ocupa o lugar da antiga imagem do topo) ----------
+     Veio da pasta "cena-impressora". Tudo e desenhado em CSS, menos os bonecos,
+     que sao arquivos .webp em imagens/bonecos/. As medidas usam cqw (1% da
+     largura da propria cena), entao ela encolhe inteira, sem quebrar nada. */
+  .cena-wrap{
+    margin:6px auto 0;
+    max-width:620px;
+    padding-bottom:12px;  /* o balao da legenda passa um pouco da cena */
+    container-type:inline-size;
+    font-family:"Montserrat",sans-serif;
+    --amarelo:#FFC93C;
+    --amarelo-escuro:#D9A21E;
+    --tinta:#1D2140;
+  }
+  .cena{
+    position:relative;
+    width:100%;
+    /* espaco livre em cima: o boneco grande passa da altura da cena */
+    margin-top:16.5cqw;
+    aspect-ratio:1/.7;
+    container-type:inline-size;
+    --px:0;
+    --py:0;
+  }
+
+  .mesa{
+    position:absolute;left:2cqw;right:2cqw;top:26cqw;height:32cqw;z-index:1;border-radius:50%;
+    background:radial-gradient(ellipse 62% 72% at 50% 38%,#FFFFFF 0%,#F7F1E8 55%,#EADFCF 100%);
+    box-shadow:inset 0 .6cqw 0 rgba(255,255,255,.95),0 2.6cqw 0 #D5C5AE,0 3cqw 0 #C9B79D,0 7cqw 6cqw rgba(0,0,0,.3);
+  }
+
+  /* impressora */
+  .impressora{
+    position:absolute;z-index:3;left:23cqw;width:54cqw;top:10cqw;
+    translate:calc(var(--px) * 2px) calc(var(--py) * 1.2px);
+    transition:translate .3s ease-out;
+  }
+  .impressora__bandeja{
+    position:absolute;left:18%;right:18%;top:-7cqw;height:9cqw;
+    background:linear-gradient(#4A4D53,#35383D);border-radius:2cqw 2cqw 0 0;
+    transform:perspective(300px) rotateX(28deg);transform-origin:bottom;
+  }
+  .impressora__bandeja span{position:absolute;left:10%;right:10%;top:-3.4cqw;height:6cqw;background:#fff;border-radius:3px;}
+  .impressora__corpo{
+    position:relative;height:21cqw;border-radius:5cqw 5cqw 3.6cqw 3.6cqw;
+    background:linear-gradient(180deg,#44474D 0%,#32353A 55%,#25272B 100%);
+    box-shadow:0 1.6cqw 0 #191A1B,0 3.5cqw 3.5cqw rgba(0,0,0,.3),inset 0 2px 0 rgba(255,255,255,.14);
+  }
+  .impressora__visor{
+    position:absolute;left:3.6cqw;top:3.6cqw;display:flex;align-items:center;gap:1.2cqw;
+    background:#191A1B;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);color:#9BF0B7;
+    border-radius:1.6cqw;padding:1cqw 2cqw;
+    font-size:max(10px,1.55cqw);font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;
+  }
+  .led{
+    width:1.5cqw;height:1.5cqw;min-width:6px;min-height:6px;border-radius:50%;
+    background:#3CFF8A;box-shadow:0 0 8px #3CFF8A;animation:piscar 1s steps(2) infinite;
+  }
+  @keyframes piscar{50%{opacity:.25;}}
+  .impressora__botoes{position:absolute;right:4cqw;top:4cqw;display:flex;gap:1.4cqw;}
+  .impressora__botoes i{width:3.6cqw;height:3.6cqw;border-radius:50%;background:#4FA8F5;box-shadow:0 .5cqw 0 #2D78C4;}
+  .impressora__botoes i + i{background:var(--amarelo);box-shadow:0 .5cqw 0 var(--amarelo-escuro);}
+  .impressora__fenda{
+    position:absolute;left:12%;right:12%;bottom:3cqw;height:2cqw;border-radius:1.4cqw;background:#111214;
+    box-shadow:inset 0 .5cqw .7cqw rgba(0,0,0,.7),0 1px 0 rgba(255,255,255,.1);
+  }
+
+  /* a folha sai deitada na mesa */
+  .saida{position:absolute;z-index:4;left:20cqw;width:60cqw;top:27cqw;height:26cqw;overflow:hidden;perspective:110cqw;perspective-origin:50% 0;}
+  .saida__folha{
+    position:absolute;left:12cqw;right:12cqw;top:0;height:36cqw;background:#fff;border-radius:0 0 1cqw 1cqw;
+    transform-origin:50% 0;transform:rotateX(64deg) translateY(-101%);
+    box-shadow:0 1cqw 2cqw rgba(0,0,0,.18);
+  }
+  .saida__folha::before{content:"";position:absolute;inset:2.4cqw;border:2px dashed #F2A7C8;border-radius:1cqw;}
+  .saida__molde{position:absolute;left:50%;top:50%;width:62%;transform:translate(-50%,-50%);opacity:.4;filter:saturate(.3) contrast(.85);}
+  .imprimindo .saida__folha{animation:sair 1.1s steps(8,end) forwards;}
+  @keyframes sair{to{transform:rotateX(64deg) translateY(0);}}
+
+  /* o boneco salta da folha e fica em pe */
+  .saida__boneco{
+    position:absolute;z-index:7;left:50cqw;top:44cqw;width:calc(var(--tam,22) * 1cqw);pointer-events:none;
+    transform-origin:50% 100%;transform:translate(-50%,-100%) scale(.2);opacity:0;
+    filter:drop-shadow(0 .5cqw .5cqw rgba(0,0,0,.22));
+  }
+  .saida__sombra{
+    position:absolute;z-index:5;left:50cqw;top:44cqw;width:calc(var(--tam,22) * .86cqw);height:4cqw;border-radius:50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:radial-gradient(closest-side,rgba(40,30,20,.45),rgba(40,30,20,0));
+  }
+  .pulou .saida__boneco{animation:saltar .8s cubic-bezier(.3,.7,.4,1) forwards;}
+  .pulou .saida__sombra{animation:sombra-salto .8s cubic-bezier(.3,.7,.4,1) forwards;}
+  @keyframes saltar{
+    0%{opacity:0;transform:translate(-50%,-100%) scale(.25,.1);}
+    30%{opacity:1;transform:translate(-50%,-100%) scale(.97,1.03);}
+    55%{transform:translate(-50%,-102%) scale(1.01);}
+    78%{transform:translate(-50%,-100%) scale(1.04,.96);}
+    100%{opacity:1;transform:translate(-50%,-100%) scale(1);}
+  }
+  @keyframes sombra-salto{
+    0%{transform:translate(-50%,-50%) scale(.2);}
+    55%{transform:translate(-50%,-50%) scale(.6);}
+    78%,100%{transform:translate(-50%,-50%) scale(1);}
+  }
+  .sumindo .saida__boneco{animation:sumir .45s ease-in forwards;}
+  .sumindo .saida__sombra{animation:none;transform:translate(-50%,-50%) scale(0);transition:transform .4s;}
+  .sumindo .saida__folha{opacity:0;transition:opacity .45s;}
+  @keyframes sumir{
+    from{opacity:1;transform:translate(-50%,-100%) scale(1);}
+    to{opacity:0;transform:translate(-50%,-100%) scale(.7);}
+  }
+
+  .legenda{
+    position:absolute;z-index:8;top:62cqw;left:50%;transform:translateX(-50%) rotate(-2deg);margin:0;
+    background:#fff;color:var(--tinta);border-radius:14px;padding:8px 16px;
+    font-weight:800;font-size:max(12px,1.8cqw);line-height:1.2;
+    box-shadow:0 6px 0 rgba(0,0,0,.14);white-space:nowrap;
+  }
+  .legenda__nome{color:#1E7BE0;font-weight:800;}
+
   /* ---------- ícones grandes ---------- */
   .icons4{
     list-style:none;
@@ -834,10 +955,26 @@
   <div class="in">
     <h1>Transforme folhas impressas em <span class="b">esculturas 3D<br class="br-d"> de colecionador</span> usando apenas tesoura e cola</h1>
 
-    <div class="hero-img">
-      <span class="ph ph--hero" data-img="imagens/hero.webp">
-        <img src="imagens/hero.webp" srcset="imagens/hero-640.webp 640w, imagens/hero.webp 1022w" sizes="(max-width:948px) calc(100vw - 48px), 900px" alt="Modelos de papercraft montados sobre a mesa" fetchpriority="high" decoding="async">
-      </span>
+    <!-- cena da impressora: substitui a antiga imagem do topo. Para trocar os
+         bonecos, mexa na lista BONECOS no script la embaixo. -->
+    <div class="cena-wrap" role="img" aria-label="Uma impressora imprime o molde e a escultura de papel salta da folha montada">
+      <div class="cena" aria-hidden="true">
+        <div class="mesa"></div>
+
+        <div class="impressora">
+          <div class="impressora__bandeja"><span></span></div>
+          <div class="impressora__corpo">
+            <div class="impressora__visor"><span class="led"></span><span>imprimindo <b class="visor__n">01</b>/<span class="visor__total">00</span></span></div>
+            <div class="impressora__botoes"><i></i><i></i></div>
+            <div class="impressora__fenda"></div>
+          </div>
+        </div>
+
+        <div class="saida"><div class="saida__folha"><img class="saida__molde" alt="" decoding="async"></div></div>
+        <span class="saida__sombra"></span>
+        <img class="saida__boneco" alt="" decoding="async">
+        <p class="legenda"><span class="legenda__nome"></span> acabou de sair da impressora</p>
+      </div>
     </div>
 
     <p class="hero-sub">&ldquo;O método japonês de montagem guiada por números que troca o excesso de tempo de tela por um hobby manual imersivo e relaxante, mesmo que você esteja começando do absoluto zero.&rdquo;</p>
@@ -1300,6 +1437,67 @@
 </script>
 
 <script>
+  /* ---- cena da impressora do topo ----
+     Imprime a folha, o boneco salta, some, e entra o proximo. Roda so quando
+     a cena esta visivel e a aba esta aberta. TROCAR OS BONECOS: e so mexer na
+     lista abaixo (tamanho = largura em % da cena). */
+  (function(){
+    var BONECOS=[
+      {src:"imagens/bonecos/touro.webp",          nome:"Touro",         tamanho:62},
+      {src:"imagens/bonecos/stitch.webp",         nome:"Stitch",        tamanho:62},
+      {src:"imagens/bonecos/cavalo.webp",         nome:"Cavalo",        tamanho:62},
+      {src:"imagens/bonecos/chaves.webp",         nome:"Chaves",        tamanho:62},
+      {src:"imagens/bonecos/gatinho-preto.webp",  nome:"Gatinho Preto", tamanho:62}
+    ];
+
+    var cena=document.querySelector(".cena");
+    if(!cena)return;
+    function q(s){return cena.querySelector(s);}
+    var molde=q(".saida__molde"),boneco=q(".saida__boneco"),
+        nome=q(".legenda__nome"),visor=q(".visor__n");
+    var semMovimento=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    q(".visor__total").textContent=("0"+BONECOS.length).slice(-2);
+
+    var vez=0,tempos=[],rodando=false;
+    function imprimir(){
+      var item=BONECOS[vez%BONECOS.length];
+      cena.classList.remove("imprimindo","pulou","sumindo");
+      molde.src=item.src;
+      boneco.src=item.src;
+      cena.style.setProperty("--tam",item.tamanho||22);
+      visor.textContent=("0"+((vez%BONECOS.length)+1)).slice(-2);
+      void cena.offsetWidth;  /* reinicia as animacoes */
+      cena.classList.add("imprimindo");
+      tempos.push(setTimeout(function(){cena.classList.add("pulou");nome.textContent=item.nome;},1150));
+      tempos.push(setTimeout(function(){cena.classList.add("sumindo");},3700));
+      tempos.push(setTimeout(function(){vez++;imprimir();},4200));
+    }
+    function ligar(){if(!rodando){rodando=true;imprimir();}}
+    function desligar(){rodando=false;tempos.forEach(clearTimeout);tempos=[];}
+
+    if(semMovimento){
+      var item=BONECOS[0];
+      molde.src=item.src;boneco.src=item.src;nome.textContent=item.nome;
+      cena.style.setProperty("--tam",item.tamanho||22);
+      cena.classList.add("imprimindo","pulou");
+      return;
+    }
+
+    new IntersectionObserver(function(e){
+      (e[0].isIntersecting&&!document.hidden)?ligar():desligar();
+    },{threshold:.15}).observe(cena);
+    document.addEventListener("visibilitychange",function(){document.hidden?desligar():ligar();});
+
+    /* a cena acompanha de leve o movimento do mouse */
+    addEventListener("pointermove",function(e){
+      var r=cena.getBoundingClientRect();
+      if(r.bottom<0||r.top>innerHeight)return;
+      cena.style.setProperty("--px",((e.clientX-r.left)/r.width-.5).toFixed(3));
+      cena.style.setProperty("--py",((e.clientY-r.top)/r.height-.5).toFixed(3));
+    },{passive:true});
+  })();
+
   /* data de hoje na barra de promoção, no formato dd/mm/aaaa */
   (function(){
     var el=document.getElementById("data-hoje");

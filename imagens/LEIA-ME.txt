@@ -13,8 +13,12 @@ Todas as imagens da pagina usam .webp. Se um dia voce precisar de .jpg
 ou .png em algum arquivo, e so avisar que eu troco no index.html.
 
 
-HERO (2 arquivos)  - JA ESTAO NA PASTA
---------------------------------------
+HERO (2 arquivos)  - FORA DE USO DESDE A CENA DA IMPRESSORA
+-----------------------------------------------------------
+   ATENCAO: a pagina NAO usa mais estes dois arquivos. O lugar
+   deles no topo passou a ser a cena animada da impressora (veja
+   a secao BONECOS mais abaixo). Deixei os arquivos aqui caso um
+   dia voce queira voltar a foto - e so avisar.
 hero.webp ......................... 1022 x 681 px  (3:2)   85 KB
    A arte principal da dobra. Se trocar, mantenha a proporcao 3:2
    (ex.: 1500 x 1000) para nada ser cortado.
@@ -26,6 +30,29 @@ hero-640.webp ..................... 640 x 426 px   (3:2)   34 KB
    hero-640.webp de novo a partir dela (mesma imagem, 640 px de
    largura), senao o celular vai continuar mostrando a arte antiga.
    Qualquer site de redimensionar imagem resolve, ou me peca.
+
+
+BONECOS DA CENA DA IMPRESSORA (5 arquivos)  - JA ESTAO NA PASTA
+---------------------------------------------------------------
+Ficam em  imagens/bonecos/  e sao os unicos arquivos da cena do
+topo - a impressora, a mesa, a folha e o balao sao desenhados em
+CSS, nao sao imagem.
+
+bonecos/touro.webp ................ 600 x 583 px   28 KB
+bonecos/stitch.webp ............... 600 x 583 px   38 KB
+bonecos/cavalo.webp ............... 600 x 583 px   19 KB
+bonecos/chaves.webp ............... 600 x 583 px   42 KB
+bonecos/gatinho-preto.webp ........ 600 x 583 px   20 KB
+
+   Eles aparecem um de cada vez, em ciclo, saltando da folha.
+   So o primeiro baixa quando a pagina abre; os outros sao
+   buscados na hora em que chega a vez de cada um.
+
+   PARA TROCAR OU ADICIONAR: use PNG ou WebP com FUNDO
+   TRANSPARENTE, quadrado, com o boneco em pe encostado na borda
+   de baixo. Depois me peca para incluir na lista - no index.html
+   existe um bloco marcado "TROCAR OS BONECOS" com o nome de cada
+   um e o tamanho.
 
 
 METODO JAPONES - 3 PASSOS  - JA ESTAO NA PASTA
@@ -87,7 +114,7 @@ b-04.webp .......................... 962 x 962 px
    Zoologico Geometrico - leao, cervo ou lobo angular.
 
 
-TOTAL: 23 arquivos
+TOTAL: 28 arquivos (23 na raiz + 5 em bonecos/)
 
 
 COMO AS IMAGENS CARREGAM (nao mexa sem necessidade)
