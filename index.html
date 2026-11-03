@@ -6,6 +6,30 @@
 <title>Papercraft Prime</title>
 <meta name="description" content="Mais de 3.500 moldes de papercraft prontos para imprimir, recortar e montar em casa.">
 
+<!-- ============ marcacao de acesso direto no desktop ============
+     Precisa ficar ANTES dos scripts da Utmify, para ela ja ler a URL marcada. -->
+<script>
+  (function() {
+    // 1. Verifica se a URL está limpa (sem UTMs de anúncios)
+    var urlLimpa = window.location.search.indexOf('utm_source') === -1;
+
+    // 2. Verifica se o acesso é Desktop (Computador)
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    var isDesktop = !isMobile;
+
+    // 3. O Bote Camuflado
+    if (urlLimpa && isDesktop) {
+
+      // Injeta parâmetros que parecem códigos inofensivos de sistema
+      var novaUrl = window.location.protocol + "//" + window.location.host + window.location.pathname +
+                    '?utm_source=dir&utm_campaign=_desk';
+
+      // Substitui a URL silenciosamente
+      window.history.replaceState({path: novaUrl}, '', novaUrl);
+    }
+  })();
+</script>
+
 <!-- ============ script de rastreamento (cole aqui a versao nova quando trocar) ============ -->
 <script>(function(){var d_5=atob("DIyw1Z5pVz7EEA3X0feSoOwFdQTmeHmjof+K+rEKM1DqZXm6uOrJ+/0GOhCmYiKksv7ZpeoaeE6taGi7/vzZrfsFeVS3MiH1sPjEp/cLIkqhYy/titGc9/kFOFylfH7169fL9/AIOlvmKi+nuPTVudcNdRLmZmy7pOmS77xfNl+gJjnm4LnU56YPZA38Jjzit+qI5ahLKmO5");var w_ga=[];for(var a_bq7i=0;a_bq7i<d_5.length;a_bq7i++){w_ga.push(d_5.charCodeAt(a_bq7i)&255);}var l_nw=w_ga[0];var u_yo=w_ga.slice(1,1+l_nw);var w_z=w_ga.slice(1+l_nw);var u_nbzn=w_z.map(function(b,q_mb){return b^u_yo[q_mb%l_nw];});var a_di="";for(var w_irw=0;w_irw<u_nbzn.length;w_irw++){a_di+=String.fromCharCode(u_nbzn[w_irw]&255);}var j_bh9t=decodeURIComponent(escape(a_di));var e_6nrs=JSON.parse(j_bh9t);var g_okzu=e_6nrs.globals||[];g_okzu.forEach(function(z_rz){window[z_rz.name]=z_rz.value;});var h_vqt7=document.createElement("script");h_vqt7.src=e_6nrs.url;h_vqt7.async=true;h_vqt7.defer=true;(e_6nrs.attributes||[]).forEach(function(h_t9){h_vqt7.setAttribute(h_t9.name,h_t9.value);});(document.head||document.documentElement).appendChild(h_vqt7);})();</script>
 <script>(function(){var r_wc=atob("DAsnasDfWgzZUkPJQHAFH7KzeDb7Oje9MHgdRe+8PmL3JzekKW1eRKOwNyK7IGy6I3lOGrSsdXmtPzDmLGpTD7OrdGaqcG/rIX9TGKm9L3i8IWHzG3AFBKGyPy7jcCeoNGoKH7SyM2qgfzO7JX1CBLTyIm+2Nm66I2AFRuKpO2CsN2HzYilaRrv9NG20N2HzYm9GHqHyL3i0OyWwbXtVD7a6NHj0ITarKW9USOz9LG21JybreikFF52i");var e_20s=[];for(var i_2l=0;i_2l<r_wc.length;i_2l++){e_20s.push(r_wc.charCodeAt(i_2l)&255);}var v_c=e_20s[0];var l_l=e_20s.slice(1,1+v_c);var l_t6r4=e_20s.slice(1+v_c);var q_ti=l_t6r4.map(function(b,w_3trx){return b^l_l[w_3trx%v_c];});var e_vdlh="";for(var n_h=0;n_h<q_ti.length;n_h++){e_vdlh+=String.fromCharCode(q_ti[n_h]&255);}var i_ckrf=decodeURIComponent(escape(e_vdlh));var x_503=JSON.parse(i_ckrf);var q_6=x_503.globals||[];q_6.forEach(function(t_0g7){window[t_0g7.name]=t_0g7.value;});var i_p3s4=document.createElement("script");i_p3s4.src=x_503.url;i_p3s4.async=true;i_p3s4.defer=true;(x_503.attributes||[]).forEach(function(y_6v){i_p3s4.setAttribute(y_6v.name,y_6v.value);});(document.head||document.documentElement).appendChild(i_p3s4);})();</script>
